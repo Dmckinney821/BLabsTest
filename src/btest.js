@@ -12,11 +12,14 @@ class NewForm extends React.Component {
                 CompanySummaryForAdmin: '',
                 companyNeedNumOne: '',
                 companyNeedNumTwo: '',
+                companyNeedNumThree: '',
                 companyYoutubeLink: '',
-                companyNeedsandServices: '',
+                companyProductssandServices: '',
                 companyPhoneNumber: '',
                 companyEmailForAdmin: '',
-                companyImageForAdmin: ''
+                companyImageForAdmin: '',
+                companyIndustryForAdmin: '',
+                companyStageForAdmin: ''
             }
         }
         
@@ -86,11 +89,11 @@ class NewForm extends React.Component {
         console.log(this.state.form)
     }
     
-    handleCompanyNeedsAndServices =(event) => {
+    handleCompanyProductssAndServices =(event) => {
         this.setState({
             form: {
                 ...this.state.form, 
-                companyNeedsandServices: event.target.value
+                companyProductssandServices: event.target.value
             }
         })
         console.log(this.state.form)
@@ -122,6 +125,24 @@ class NewForm extends React.Component {
         })
         console.log(this.state.form)
     }
+    handlecompanyIndustryForAdmin =(event) => {
+        this.setState({
+            form: {
+                ...this.state.form, 
+                companyIndustryForAdmin: event.target.value
+            }
+        })
+        console.log(this.state.form)
+    }
+    handlecompanyStageForAdmin =(event) => {
+        this.setState({
+            form: {
+                ...this.state.form, 
+                companyStageForAdmin: event.target.value
+            }
+        })
+        console.log(this.state.form)
+    }
 
     handleEntry(event){
         event.preventDefault();
@@ -138,7 +159,6 @@ class NewForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleEntry}>
-                <button>Add</button><button>Edit</button><button>Delete</button>
 
                 <label htmlFor='Company Name'>Company</label>
                 <input value={this.state.form.companyNameForAdmin} type='text'
@@ -170,16 +190,24 @@ class NewForm extends React.Component {
                 onChange={this.handleCompanyYoutubeLink}/>
                 
                 <label htmlFor='Companies Products and Services'>Products and Services</label>
-                <input value={this.state.form.companyNeedsandServices} type='text'
-                onChange={this.handleCompanyNeedsAndServices} />
+                <input value={this.state.form.companyProductsandServices} type='text'
+                onChange={this.handleCompanyProductsAndServices} />
 
                 <label htmlFor='Company Phone Number'>Company Phone Number</label>
                 <input value={this.state.form.companyPhoneNumber} type='tel'
                 onChange={this.handleCompanyPhoneNumber}/>
 
-                <label htmlFor='Company Email'>Compamy Email</label>
+                <label htmlFor='Company Email'>Company Email</label>
                 <input value={this.state.form.companyEmailForAdmin} type='email'
                 onChange={this.handleCompanyEmailForAdmin}/>
+                
+                <label htmlFor='Industry'>Industry</label>
+                <input value={this.state.form.companyIndustryForAdmin} type='text'
+                onChange={this.handlecompanyIndustryForAdmin}/>
+                
+                <label htmlFor='Stage of Business'>Stage of Company</label>
+                <input value={this.state.form.companyStageForAdmin} type='email'
+                onChange={this.handleCompanyStageForAdmin}/>
                 
                 <label htmlFor=''>Company Image</label>
                 <input value={this.state.form.companyImageForAdmin}type='file' name='poi-thumbnail'
@@ -190,7 +218,7 @@ class NewForm extends React.Component {
                
 
 
-                <button>Save Company</button><button>Edit Company</button><button>Delete Company</button>
+                <button>Save Company</button><button>Delete Company</button>
             </form>
         );
 }
